@@ -7,7 +7,7 @@ const initialValue ={
     id:'',
     name:'',
     age:'',
-    height:''
+    email:''
 }
 
 const FriendsForm = props =>{
@@ -27,7 +27,7 @@ const FriendsForm = props =>{
         <div>
            <form onSubmit = {formSubmit}>
             <input type = 'text' placeholder = 'Name' name = 'name' value = {friend.name} onChange = {inputChange} required />
-            <input type = 'text' placeholder = 'Height' name = 'height' value = {friend.height} onChange = {inputChange} required />
+            <input type = 'text' placeholder = 'Email' name = 'email' value = {friend.email} onChange = {inputChange} required />
             <input type = 'text' placeholder = 'Age' name = 'age' value = {friend.age} onChange = {inputChange} required/>
             <button type = 'submit'>Create New friend!</button>
         </form> 

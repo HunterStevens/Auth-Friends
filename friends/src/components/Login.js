@@ -28,7 +28,7 @@ export const Login = (props) =>{
             console.log(res);
 
             localStorage.setItem('token', JSON.stringify(res.data.payload));
-            props.history.push('/protected');
+            props.history.push('/friends');
         })
         .catch(err =>{
             console.log(err);

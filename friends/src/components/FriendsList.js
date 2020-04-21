@@ -1,21 +1,24 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchFriends} from './store/actions/friendsAction';
+import {fetchFriends} from '../Store/actions/friendActions';
+import {authorize} from '../utils/authorize';
 
-const friendsList = props =>{
+const FriendsList = props =>{
     useEffect(() => {
         props.fetchFriends();
     },[])
 
+   
+
     return (
         <div className="mainList">
-            {props.characters.map(char =>{ 
+            {props.friends.map(char =>{ 
             console.log(char);
             return(
                 <div key={char.id}>
                     <h2>Name: {char.name}</h2>
                     <h4>age:{char.age}</h4>
-                    <p>height:{char.height}</p>
+                    <p>email:{char.email}</p>
                 </div>   
             )})}
         </div>
@@ -24,11 +27,11 @@ const friendsList = props =>{
 
 const mapStateToProps = state =>{
     return{
-        characters:state.characters,
+        friends:state.friends,
         isFetching:state.isFetching,
         error:state.error
     }
 }
 
 export default connect(mapStateToProps,
-    {fetchFriends})(friendsList);
+    {fetchFriends})(FriendsList);
