@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {authorize} from '../utils';
-import {connect} from '';
+import {authorize} from '../utils/authorize';
+import {connect} from 'react-redux';
 
 export const Login = (props) =>{
 
@@ -23,7 +23,13 @@ export const Login = (props) =>{
 
     const loginSubmit = event =>{
         event.preventDefault();
-        
+        authorize().post('/api/login', stateLogin.credentials)
+        .then(res =>{
+            console.log(res);
+        })
+        .catch(err =>{
+            console.log(err);
+        })
     }
 
     return(
