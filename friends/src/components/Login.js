@@ -1,26 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import {authorize} from '../utils';
 import {connect} from '';
 
-export const Login = () =>{
+export const Login = (props) =>{
 
+    const [stateLogin, setStateLogin] = useState({
+        credentials:{
+            username:'',
+            password:''
+        }
+    });
+
+    const handleChange = event =>{
+        setStateLogin({
+            credentials:{
+                ...stateLogin.credentials,
+                [event.target.name]: event.target.value
+            }
+        });
+    }
+
+    const loginSubmit = event =>{
+        event.preventDefault();
+        
+    }
 
     return(
         <div className="Login-Form">
-             <form onSubmit={this.login}>
+             <form onSubmit={loginSubmit}>
           <input
             type="text"
             name="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
+            value={stateLogin.credentials.username}
+            onChange={handleChange}
           />
           <input
             type="password"
             name="password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
+            value={stateLogin.credentials.password}
+            onChange={handleChange}
           />
+            <button>Log in</button>
+          </form>
         </div>
     )
 }
