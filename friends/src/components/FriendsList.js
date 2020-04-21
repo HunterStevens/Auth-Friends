@@ -1,16 +1,11 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchFriends} from './store/actions/friendsAction';
-import Loader from 'react-loader-spinner';
 
 const friendsList = props =>{
     useEffect(() => {
         props.fetchFriends();
     },[])
-
-   if(props.isFetching){
-       return<Loader/>
-   }
 
     return (
         <div className="mainList">

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {authorize} from '../utils/authorize';
+import {newFriends} from '../Store/actions/friendActions'
 
 const initialValue ={
     id:'',
@@ -35,5 +36,5 @@ const FriendsForm = props =>{
 }
 
 export default connect(
-    
+    {newFriends}
 )(FriendsForm)

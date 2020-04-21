@@ -13,13 +13,19 @@ function App() {
     <Router>
     <div className="App">
       <header className="App-header">
-        
+        <ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/friends">Protected</Link>
+          </li>
+        </ul>
 
        <Switch>
          <PrivateRoute exact path='/friends' component = {FriendsForm} />
          <PrivateRoute exact path='/friends' component = {FriendsList} />
-         <Route path='/login' component={Login}/>
-         <Route path='/' component={Login}/>
+         <Route exact path='/login' component={Login}/>
        </Switch>
       </header>
     </div>

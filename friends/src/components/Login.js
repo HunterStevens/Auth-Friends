@@ -26,6 +26,9 @@ export const Login = (props) =>{
         authorize().post('/api/login', stateLogin.credentials)
         .then(res =>{
             console.log(res);
+
+            localStorage.setItem('token', JSON.stringify(res.data.payload));
+            props.history.push('/protected');
         })
         .catch(err =>{
             console.log(err);
