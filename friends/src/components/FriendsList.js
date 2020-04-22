@@ -12,6 +12,7 @@ const FriendsList = props =>{
 
     return (
         <div className="mainList">
+            <h1>Friends List</h1>
             {props.friends.map(char =>{ 
             console.log(char);
             return(
@@ -28,7 +29,6 @@ const FriendsList = props =>{
 const mapStateToProps = state =>{
     return{
         friends:state.friends,
-        isFetching:state.isFetching,
         error:state.error
     }
 }

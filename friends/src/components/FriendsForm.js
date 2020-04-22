@@ -25,6 +25,7 @@ const FriendsForm = props =>{
 
     return(
         <div>
+            <h1>New Friend</h1>
            <form onSubmit = {formSubmit}>
             <input type = 'text' placeholder = 'Name' name = 'name' value = {friend.name} onChange = {inputChange} required />
             <input type = 'text' placeholder = 'Email' name = 'email' value = {friend.email} onChange = {inputChange} required />
@@ -35,6 +36,10 @@ const FriendsForm = props =>{
     )
 }
 
+const mapStateToProps = state =>{
+}
+
 export default connect(
+    null,
     {newFriends}
 )(FriendsForm)

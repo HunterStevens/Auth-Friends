@@ -2,6 +2,7 @@ const initialState = {
     friends:[],
     isFetching:false,
     error:'',
+    addingFriends:false
 }
 
 export const friendReducer = (state = initialState, action) =>{
